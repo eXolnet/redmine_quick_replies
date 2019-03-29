@@ -15,19 +15,13 @@ This plugin version is compatible only with Redmine 3.4 and later.
 
 1. Download the .ZIP archive, extract files and copy the plugin directory to `#{REDMINE_ROOT}/plugins/redmine_quick_replies`.
 
-2. From the directory `#{REDMINE_ROOT}`, install the plugin's dependencies:
-
-    ```bash
-    bundle install
-    ```
-
-3. Make a backup of your database, then run the following command to update it:
+2. Make a backup of your database, then run the following command to update it:
 
     ```bash
     bundle exec rake redmine:plugins:migrate NAME=redmine_quick_replies RAILS_ENV=production
     ```
 
-4. Restart Redmine.
+3. Restart Redmine.
 
 ### Uninstall
 
