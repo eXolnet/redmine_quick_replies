@@ -1,0 +1,11 @@
+<h2><%= l(:label_edit_quick_reply) %></h2>
+
+<%= labelled_form_for @reply, :html => {:id => 'reply-form'} do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+  <%= submit_tag l(:button_update), :name => 'update_button' %>
+  <%= preview_link preview_reply_path, 'reply-form' %> |
+  <%= link_to l(:button_cancel), replies_path %>
+<% end %>
+
+<div id="preview" class="wiki"></div>

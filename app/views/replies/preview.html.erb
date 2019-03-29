@@ -1,0 +1,5 @@
+<% if @body %>
+  <fieldset class="preview"><legend><%= l(:label_reply) %></legend>
+    <%= textilizable @body, :object => @reply %>
+  </fieldset>
+<% end %>

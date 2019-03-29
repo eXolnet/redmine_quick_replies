@@ -1,0 +1,6 @@
+<h2><%= l(:label_quick_replies) %></h2>
+
+<%= render :partial => 'list', :locals => {:replies => @replies} %>
+
+<h3><%= l(:label_new_quick_reply) %></h3>
+<%= render :partial => 'create', :locals => {:reply => @reply} %>

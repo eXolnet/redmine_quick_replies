@@ -1,0 +1,21 @@
+<% unless replies.empty? %>
+  <table class="list replies">
+    <tbody>
+      <% replies.each do |reply| %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td style="text-align:left;">
+            <strong><%= reply.name %></strong><br>
+            <div class="reply__excerpt"><%= reply.body %></div>
+          </td>
+
+          <td style="width:100px;" class="buttons">
+            <%= link_to l(:button_edit), edit_reply_path(:id => reply), :class => 'icon icon-edit' %>
+            <%= delete_link reply_path(reply) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="nodata"><%= l(:label_no_quick_reply) %></div>
+<% end %>

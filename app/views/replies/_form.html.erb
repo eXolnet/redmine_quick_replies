@@ -1,0 +1,8 @@
+<%= error_messages_for 'reply' %>
+
+<div class="box tabular">
+  <p><%= f.text_field :name, :required => true, :size => 60 %></p>
+  <p><%= f.text_area :body, :required => true, :cols => 60, :rows => 7, :label => :label_reply, :class => 'reply-edit', :placeholder => l(:label_leave_comment), :id => 'reply_body', :style => 'width: 97%;' %></p>
+</div>
+
+<%= wikitoolbar_for 'reply_body' %>

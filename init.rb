@@ -11,6 +11,8 @@ Redmine::Plugin.register :redmine_quick_replies do
   author_url 'https://www.exolnet.com'
 
   requires_redmine :version_or_higher => '3.4'
+
+  permission :create_replies, replies: [:index, :create, :edit, :update, :destroy], require: :loggedin
 end
 
 require 'redmine_quick_replies'
