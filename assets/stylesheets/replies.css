@@ -1,0 +1,8 @@
+.jstb_replies {
+  background-image: url(../../../images/comment.png);
+}
+
+.reply__excerpt  {
+  color: #aaa;
+  font-size: 90%;
+}
