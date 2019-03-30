@@ -1,12 +1,12 @@
 require 'redmine'
 
-REDMINE_QUICK_REPLIES_VERSION_NUMBER = '0.0.1'
+REDMINE_QUICK_REPLIES_VERSION = '1.0.0'
 
 Redmine::Plugin.register :redmine_quick_replies do
   name 'Quick Replies'
   author 'eXolnet'
   description 'Save time by creating quick replies that could be reused in any WYSIWYG editors.'
-  version REDMINE_QUICK_REPLIES_VERSION_NUMBER
+  version REDMINE_QUICK_REPLIES_VERSION
   url 'https://github.com/eXolnet/redmine_quick_replies'
   author_url 'https://www.exolnet.com'
 
