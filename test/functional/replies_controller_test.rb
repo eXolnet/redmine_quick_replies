@@ -13,4 +13,15 @@ class RepliesControllerTest < ActionController::TestCase
 
     assert_response :success
   end
+
+  def test_create_reply
+    assert_difference 'Reply.count' do
+      post :create, :reply => { :name => 'Quick Reply Name', :body => 'Body' }
+
+      assert_response 302
+    end
+
+    reply = Reply.last
+    assert_kind_of Reply, reply
+  end
 end
