@@ -3,14 +3,14 @@ jsToolBar.prototype.elements.replies = {
     title: 'Replies',
     fn: {
         wiki: function() {
-            var dropdown = $('<ul style="position:absolute;"></ul>'),
-                editor = this;
+            var editor = this,
+                dropdown = $('<ul style="position:absolute;"></ul>');
 
             for (var i = 0; i < redmine_quick_replies.length; i++) {
                 var reply = redmine_quick_replies[i],
                     li = $('<li></li>');
 
-                li.data('reply', reply)
+                li.data('reply', reply);
 
                 li.text(reply.name).appendTo(dropdown).mousedown(function() {
                     editor.encloseSelection($(this).data('reply').body);
@@ -24,10 +24,10 @@ jsToolBar.prototype.elements.replies = {
             });
 
             $(document).on('mousedown', function() {
-                dropdown.remove()
-            })
+                dropdown.remove();
+            });
 
             $('body').append(dropdown);
         }
     }
-}
+};
