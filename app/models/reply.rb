@@ -1,8 +1,13 @@
 class Reply < ActiveRecord::Base
+  include Redmine::SafeAttributes
+
   NAME_LENGTH_LIMIT = 60
 
   ## Attributes
+  attr_protected :id, :user_id
   attr_accessible :name, :body
+
+  safe_attributes :name, :body
 
   ## Relations
   belongs_to :user

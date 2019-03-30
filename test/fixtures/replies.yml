@@ -4,3 +4,8 @@ replies_001:
   user_id: 1
   name: Name
   body: Body
+replies_002:
+  id: 2
+  user_id: 2
+  name: Name
+  body: Body

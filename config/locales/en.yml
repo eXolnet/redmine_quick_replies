@@ -1,5 +1,9 @@
 # English strings go here for Rails i18n
 en:
+  activerecord:
+    attributes:
+      reply:
+        body: "Reply"
   label_quick_replies: "Quick replies"
   label_no_quick_reply: "You don't have any quick reply saved."
   label_new_quick_reply: "New quick reply"

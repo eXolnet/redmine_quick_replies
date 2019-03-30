@@ -65,10 +65,8 @@ class RepliesController < ApplicationController
 
   def update_reply_from_params
     attrs = (params[:reply] || {}).deep_dup
-    attrs.delete_if {|k,v| v.blank?}
 
-    @reply.name = attrs[:name]
-    @reply.body = attrs[:body]
+    @reply.safe_attributes = attrs
   end
 
   def find_reply
