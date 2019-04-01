@@ -18,7 +18,9 @@ module RedmineQuickReplies
             return if @heads_for_wiki_redmine_quick_replies_included
 
             content_for :header_tags do
-                o = javascript_tag("redmine_quick_replies = " + User.current.replies.to_json + ";")
+                replies = User.current.replies.order('name ASC').to_json
+
+                o = javascript_tag("redmine_quick_replies = " + replies + ";")
                 o << javascript_include_tag('replies', :plugin => 'redmine_quick_replies')
                 o << stylesheet_link_tag('replies', :plugin => 'redmine_quick_replies')
                 o.html_safe
