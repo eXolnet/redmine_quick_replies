@@ -9,16 +9,21 @@
     fn: {
       wiki: function() {
         var editor = this,
-            dropdown = $('<ul style="position:absolute;"></ul>');
+            dropdown = $('<ul class="quick-replies__menu"></ul>');
 
         for (var i = 0; i < redmine_quick_replies.length; i++) {
           var reply = redmine_quick_replies[i],
             li = $('<li></li>');
 
           li.data('reply', reply);
+          li.text(reply.name);
+          li.attr('title', reply.name);
+          li.appendTo(dropdown)
 
-          li.text(reply.name).appendTo(dropdown).mousedown(function() {
-            editor.encloseSelection($(this).data('reply').body);
+          li.mousedown(function() {
+            var body = $(this).data('reply').body;
+
+            editor.encloseSelection(body);
           });
         }
 

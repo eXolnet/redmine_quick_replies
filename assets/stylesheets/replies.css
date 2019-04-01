@@ -2,6 +2,18 @@
   background-image: url(../../../images/comment.png);
 }
 
+.quick-replies__menu {
+  max-width: 225px;
+  position: absolute;
+}
+
+.quick-replies__menu li {
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .reply__excerpt  {
   color: #aaa;
   font-size: 90%;
