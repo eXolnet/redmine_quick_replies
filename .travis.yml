@@ -12,8 +12,8 @@ install: bundle install --jobs=3 --retry=3 --with development test --without rma
 cache: bundler
 
 env:
-  - REDMINE_VER=3.4.7 DB=mysql
-  - REDMINE_VER=3.4.7 DB=postgresql
+  - REDMINE_VER=3.4.11 DB=mysql
+  - REDMINE_VER=3.4.11 DB=postgresql
   - REDMINE_VER=3.4.0 DB=mysql
   - REDMINE_VER=3.4.0 DB=postgresql
 
