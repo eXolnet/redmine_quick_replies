@@ -4,8 +4,7 @@ class Reply < ActiveRecord::Base
   NAME_LENGTH_LIMIT = 60
 
   ## Attributes
-  attr_protected :id, :user_id
-  attr_accessible :name, :body
+  attr_protected :id, :user_id if ActiveRecord::VERSION::MAJOR <= 4
 
   safe_attributes :name, :body
 

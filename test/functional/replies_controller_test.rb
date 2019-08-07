@@ -9,7 +9,7 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   def test_index
-    get :index
+    compatible_request :get, :index
 
     assert_response :success
 
@@ -25,7 +25,7 @@ class RepliesControllerTest < ActionController::TestCase
 
   def test_create_reply_with_valid_fields
     reply = new_record(Reply) do
-      post :create, :reply => { :name => 'Quick Reply Name', :body => 'Body' }
+      compatible_request :post, :create, :reply => { :name => 'Quick Reply Name', :body => 'Body' }
 
       assert_response 302
       assert_redirected_to :controller => 'replies', :action => 'index'
@@ -35,7 +35,7 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   def test_create_reply_shoud_validate_required_fields_on_empty_post
-    post :create
+    compatible_request :post, :create
 
     assert_response :success
 
@@ -44,7 +44,7 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   def test_create_reply_shoud_validate_required_fields
-    post :create, :reply => { :name => '', :body => '' }
+    compatible_request :post, :create, :reply => { :name => '', :body => '' }
 
     assert_response :success
 
@@ -53,7 +53,7 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   def test_edit_should_load_content
-    get :edit, :id => 1
+    compatible_request :get, :edit, :id => 1
 
     assert_response :success
 
@@ -61,45 +61,45 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   def test_edit_for_non_existing_reply
-    get :edit, :id => 999
+    compatible_request :get, :edit, :id => 999
 
     assert_response 404
   end
 
   def test_edit_for_another_user_reply
-    get :edit, :id => 2
+    compatible_request :get, :edit, :id => 2
 
     assert_response 403
   end
 
   def test_update_reply_with_valid_fields
-    put :update, :id => 1, :reply => { :name => 'Quick Reply Name', :body => 'Body' }
+    compatible_request :put, :update, :id => 1, :reply => { :name => 'Quick Reply Name', :body => 'Body' }
 
     assert_response 302
     assert_redirected_to :controller => 'replies', :action => 'index'
   end
 
   def test_update_for_non_existing_reply
-    put :update, :id => 999
+    compatible_request :put, :update, :id => 999
 
     assert_response 404
   end
 
   def test_update_for_another_user_reply
-    put :update, :id => 2
+    compatible_request :put, :update, :id => 2
 
     assert_response 403
   end
 
   def test_update_reply_shoud_keep_reply_unchanged_on_empty_post
-    put :update, :id => 1
+    compatible_request :put, :update, :id => 1
 
     assert_response  302
     assert_redirected_to :controller => 'replies', :action => 'index'
   end
 
   def test_update_reply_shoud_validate_required_fields
-    put :update, :id => 1, :reply => { :name => '', :body => '' }
+    compatible_request :put, :update, :id => 1, :reply => { :name => '', :body => '' }
 
     assert_response :success
 
@@ -108,7 +108,7 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   def test_destroy_reply
-    delete :destroy, :id => 1
+    compatible_request :delete, :destroy, :id => 1
 
     assert_response  302
     assert_redirected_to :controller => 'replies', :action => 'index'
@@ -116,13 +116,13 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   def test_destroy_for_non_existing_reply
-    delete :destroy, :id => 999
+    compatible_request :delete, :destroy, :id => 999
 
     assert_response 404
   end
 
   def test_destroy_for_another_user_reply
-    delete :destroy, :id => 2
+    compatible_request :delete, :destroy, :id => 2
 
     assert_response 403
   end
