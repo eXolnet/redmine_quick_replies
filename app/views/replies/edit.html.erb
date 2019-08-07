@@ -10,4 +10,6 @@
   <%= link_to l(:button_cancel), replies_path %>
 <% end %>
 
-<div id="preview" class="wiki"></div>
+<% if Redmine::VERSION.to_s < '4.0' %>
+  <div id="preview" class="wiki"></div>
+<% end %>
