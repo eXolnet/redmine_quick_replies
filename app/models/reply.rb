@@ -5,7 +5,6 @@ class Reply < ActiveRecord::Base
 
   ## Attributes
   attr_protected :id, :user_id if ActiveRecord::VERSION::MAJOR <= 4
-  attr_accessible :name, :body
 
   safe_attributes :name, :body
 
