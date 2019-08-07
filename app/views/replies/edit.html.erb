@@ -4,7 +4,9 @@
   <%= render :partial => 'form', :locals => {:f => f} %>
 
   <%= submit_tag l(:button_update), :name => 'update_button' %>
-  <%= preview_link preview_reply_path, 'reply-form' %> |
+  <% if Redmine::VERSION.to_s < '4.0' %>
+    <%= preview_link preview_reply_path, 'reply-form' %> |
+  <% end %>
   <%= link_to l(:button_cancel), replies_path %>
 <% end %>
 

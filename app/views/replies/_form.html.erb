@@ -5,4 +5,8 @@
   <p><%= f.text_area :body, :required => true, :cols => 60, :rows => 7, :label => :label_reply, :class => 'reply-edit', :placeholder => l(:label_leave_comment), :id => 'reply_body', :style => 'width: 97%;' %></p>
 </div>
 
-<%= wikitoolbar_for 'reply_body' %>
+<% if Redmine::VERSION.to_s >= '4.0' %>
+  <%= wikitoolbar_for 'reply_body', preview_reply_path %>
+<% else %>
+  <%= wikitoolbar_for 'reply_body' %>
+<% end %>
