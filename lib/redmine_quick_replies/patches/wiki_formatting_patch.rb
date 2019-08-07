@@ -7,7 +7,8 @@ module RedmineQuickReplies
         base.class_eval do
           unloadable # Send unloadable so it will not be unloaded in development
 
-          alias_method_chain :heads_for_wiki_formatter, :redmine_quick_replies
+          alias_method :heads_for_wiki_formatter_without_redmine_quick_replies, :heads_for_wiki_formatter
+          alias_method :heads_for_wiki_formatter, :heads_for_wiki_formatter_with_redmine_quick_replies
         end
       end
 
