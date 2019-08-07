@@ -1,6 +1,5 @@
 class RepliesController < ApplicationController
-  before_filter :require_login
-  before_filter :find_user
+  before_action :require_login, :find_user
   before_action :build_new_reply_from_params, :only => [:index, :create]
   before_action :find_reply, :only => [:edit, :update, :destroy]
   before_action :find_replies, :only => [:index, :create]
