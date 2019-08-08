@@ -1,6 +1,7 @@
 # Redmine Quick Replies
 
 [![Latest Release](https://img.shields.io/github/release/eXolnet/redmine_quick_replies.svg?style=flat-square)](https://github.com/eXolnet/redmine_quick_replies/releases)
+![Redmine Compatibility](https://img.shields.io/static/v1?label=redmine&message=3.4.x-4.0.x&color=blue&style=flat-square)
 [![Software License](https://img.shields.io/badge/license-MIT-8469ad.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/travis/eXolnet/redmine_quick_replies/master.svg?style=flat-square)](https://travis-ci.org/eXolnet/redmine_quick_replies)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3789abac23b73a9bf71b/maintainability)](https://codeclimate.com/github/eXolnet/redmine_quick_replies/maintainability)
