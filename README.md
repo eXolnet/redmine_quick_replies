@@ -38,7 +38,24 @@ This plugin version is compatible only with Redmine 3.4 and later.
 
 ## Usage
 
-Explain how to use your package.
+### Using quick replies
+
+Quick replies could be used on any WYSIWYG editor available on Redmine:
+
+1. Click on the "Quick Replies" button;
+2. Select the quick reply that you want to append by its name.
+
+![Accessing the quick replies menu](https://github.com/eXolnet/redmine_quick_replies/blob/master/doc/images/access-quick-replies.png?raw=true)
+
+### Managing quick replies
+
+Access your quick replies through your account:
+
+1. Click on the "My account" on Redmine's top menu;
+2. Click on the "Quick replies";
+3. Create, edit or delete your quick replies though this page.
+
+![Page to manage quick replies](https://github.com/eXolnet/redmine_quick_replies/blob/master/doc/images/managing-quick-replies.png?raw=true)
 
 ## Testing
 
