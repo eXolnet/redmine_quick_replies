@@ -44,7 +44,7 @@ class Reply < ActiveRecord::Base
   scope :visible, lambda {|*args|
     user = args.first || User.current
 
-    where("(#{table_name}.is_public=1 OR #{table_name}.user_id = #{user.id})")
+    where("(#{table_name}.is_public=? OR #{table_name}.user_id=?)", true, user.id)
   }
 
   def author?(user=User.current)
