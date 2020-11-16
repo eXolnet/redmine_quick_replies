@@ -1,0 +1,15 @@
+# English strings go here for Rails i18n
+en:
+  activerecord:
+    attributes:
+      reply:
+        body: "Réponse"
+  label_quick_replies: "Réponses rapides"
+  label_no_quick_reply: "Vous n'avez pas de réponse rapide enregistrée."
+  label_new_quick_reply: "Nouvelle réponse rapide"
+  label_edit_quick_reply: "Modifier la réponse rapide"
+  label_reply: Réponse
+  notice_reply_successful_create: "La réponse rapide a été créée avec succès."
+  notice_reply_successful_update: "La réponse rapide a été modifiée avec succès."
+  notice_reply_successful_delete: "La réponse rapide a été supprimée avec succès."
+  text_reply_destroy_confirmation: "Voulez-vous vraiment supprimer cette réponse rapide?"
