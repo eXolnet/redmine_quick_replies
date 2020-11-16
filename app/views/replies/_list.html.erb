@@ -1,5 +1,13 @@
 <% unless replies.empty? %>
   <table class="list replies">
+    <thead>
+      <tr>
+        <th><%=l(:label_reply)%></th>
+        <th><%=l(:field_is_public)%></th>
+        <th></th>
+      </tr>
+    </thead>
+
     <tbody>
       <% replies.each do |reply| %>
         <tr class="<%= cycle('odd', 'even') %>">
@@ -7,6 +15,8 @@
             <strong><%= reply.name %></strong><br>
             <div class="reply__excerpt"><%= reply.body %></div>
           </td>
+
+          <td><%= checked_image reply.is_public? %></td>
 
           <td style="width:100px;" class="buttons">
             <%= link_to l(:button_edit), edit_reply_path(:id => reply), :class => 'icon icon-edit' %>

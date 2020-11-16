@@ -13,6 +13,7 @@ Redmine::Plugin.register :redmine_quick_replies do
   requires_redmine :version_or_higher => '3.4'
 
   permission :create_replies, replies: [:index, :create, :edit, :update, :destroy], require: :loggedin
+  permission :manage_public_replies, {}
 end
 
 require 'redmine_quick_replies'

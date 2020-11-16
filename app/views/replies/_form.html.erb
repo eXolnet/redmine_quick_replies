@@ -2,6 +2,11 @@
 
 <div class="box tabular">
   <p><%= f.text_field :name, :required => true, :size => 60 %></p>
+
+  <% if User.current.allowed_to_manage_public_replies? %>
+    <p><%= f.check_box :is_public %></p>
+  <% end %>
+
   <p><%= f.text_area :body, :required => true, :cols => 60, :rows => 7, :label => :label_reply, :class => 'reply-edit', :placeholder => l(:label_leave_comment), :id => 'reply_body', :style => 'width: 97%;' %></p>
 </div>
 

@@ -72,12 +72,12 @@ class RepliesController < ApplicationController
     reply_id = params[:reply_id] || params[:id]
 
     @reply = Reply.find(reply_id)
-    raise Unauthorized unless @reply.visible?
+    raise Unauthorized unless @reply.editable?
   rescue ActiveRecord::RecordNotFound
     render_404
   end
 
   def find_replies
-    @replies = @user.replies.order('name ASC')
+    @replies = Reply.editable.sorted
   end
 end

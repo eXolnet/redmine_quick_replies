@@ -34,7 +34,19 @@ class RepliesControllerTest < ActionController::TestCase
     assert User.current, reply.user
   end
 
-  def test_create_reply_shoud_validate_required_fields_on_empty_post
+  def test_create_reply_public
+    reply = new_record(Reply) do
+      compatible_request :post, :create, :reply => { :name => 'Quick Reply Name', :is_public => '1', :body => 'Body' }
+
+      assert_response 302
+      assert_redirected_to :controller => 'replies', :action => 'index'
+    end
+
+    assert User.current, reply.user
+    assert true, reply.is_public
+  end
+
+  def test_create_reply_should_validate_required_fields_on_empty_post
     compatible_request :post, :create
 
     assert_response :success
@@ -43,13 +55,21 @@ class RepliesControllerTest < ActionController::TestCase
     assert_select_error(/Reply cannot be blank/i)
   end
 
-  def test_create_reply_shoud_validate_required_fields
+  def test_create_reply_should_validate_required_fields
     compatible_request :post, :create, :reply => { :name => '', :body => '' }
 
     assert_response :success
 
     assert_select_error(/Name cannot be blank/i)
     assert_select_error(/Reply cannot be blank/i)
+  end
+
+  def test_create_reply_without_manage_public_permission
+    @request.session[:user_id] = 2
+
+    compatible_request :post, :create, :reply => { :name => 'Quick Reply Name', :is_public => '1', :body => 'Body' }
+
+    assert_response 403
   end
 
   def test_edit_should_load_content
@@ -91,20 +111,28 @@ class RepliesControllerTest < ActionController::TestCase
     assert_response 403
   end
 
-  def test_update_reply_shoud_keep_reply_unchanged_on_empty_post
+  def test_update_reply_should_keep_reply_unchanged_on_empty_post
     compatible_request :put, :update, :id => 1
 
     assert_response  302
     assert_redirected_to :controller => 'replies', :action => 'index'
   end
 
-  def test_update_reply_shoud_validate_required_fields
+  def test_update_reply_should_validate_required_fields
     compatible_request :put, :update, :id => 1, :reply => { :name => '', :body => '' }
 
     assert_response :success
 
     assert_select_error(/Name cannot be blank/i)
     assert_select_error(/Reply cannot be blank/i)
+  end
+
+  def test_update_without_manage_public_permission
+    @request.session[:user_id] = 2
+
+    compatible_request :put, :update, :id => 1, :reply => { :name => 'Quick Reply Name', :is_public => '1', :body => 'Body' }
+
+    assert_response 403
   end
 
   def test_destroy_reply

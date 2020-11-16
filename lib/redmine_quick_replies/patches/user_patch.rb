@@ -5,17 +5,15 @@ module RedmineQuickReplies
     module UserPatch
       def self.included(base) # :nodoc:
         base.send(:include, InstanceMethods)
-
-        base.class_eval do
-          unloadable # Send unloadable so it will not be unloaded in development
-
-          has_many :replies, dependent: :destroy
-        end
       end
 
       module InstanceMethods
         def allowed_to_create_replies?
           allowed_to?(:create_replies, nil, global: true)
+        end
+
+        def allowed_to_manage_public_replies?
+          allowed_to?(:manage_public_replies, nil, global: true)
         end
       end
     end
