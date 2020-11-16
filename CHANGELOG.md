@@ -2,6 +2,13 @@
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.3.0
+
+### Added
+
+* Allow public replies to be created
+* Add french translations
+
 ## v1.2.0
 
 ### Added
