@@ -77,7 +77,7 @@ class RepliesControllerTest < ActionController::TestCase
 
     assert_response :success
 
-    assert_select 'input[type="text"][value="Name"]'
+    assert_select 'input[type="text"][value="Reply 1"]'
   end
 
   def test_edit_for_non_existing_reply

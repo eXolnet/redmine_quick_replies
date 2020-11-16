@@ -2,10 +2,18 @@
 replies_001:
   id: 1
   user_id: 1
-  name: Name
-  body: Body
+  name: Reply 1
+  body: Dapibus ligula phasellus
+  is_public: false
 replies_002:
   id: 2
   user_id: 2
-  name: Name
-  body: Body
+  name: Reply 2
+  body: Metus tellus conubia
+  is_public: false
+replies_003:
+  id: 3
+  user_id: 1
+  name: Reply 3
+  body: Mollis facilisis convallis
+  is_public: true
