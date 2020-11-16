@@ -62,7 +62,7 @@ Access your quick replies through your account:
 Run tests using the following command:
 
 ```bash
-bundle exec rake redmine:plugins:test NAME=redmine_quick_replies RAILS_ENV=development
+bundle exec rake redmine:plugins:test NAME=redmine_quick_replies RAILS_ENV=test
 ```
 
 ## Contributing
