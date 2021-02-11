@@ -1,20 +1,15 @@
 module RedmineQuickReplies
   module Patches
     module WikiFormattingPatch
-      def self.included(base) # :nodoc:
-        base.send(:include, InstanceMethods)
+      extend ActiveSupport::Concern
 
-        base.class_eval do
-          unloadable # Send unloadable so it will not be unloaded in development
-
-          alias_method :heads_for_wiki_formatter_without_redmine_quick_replies, :heads_for_wiki_formatter
-          alias_method :heads_for_wiki_formatter, :heads_for_wiki_formatter_with_redmine_quick_replies
-        end
+      included do
+        prepend InstanceOverwriteMethods
       end
 
-      module InstanceMethods
-        def heads_for_wiki_formatter_with_redmine_quick_replies
-            heads_for_wiki_formatter_without_redmine_quick_replies
+      module InstanceOverwriteMethods
+        def heads_for_wiki_formatter
+          super
 
             return if @heads_for_wiki_redmine_quick_replies_included
 
