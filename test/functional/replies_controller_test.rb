@@ -23,6 +23,15 @@ class RepliesControllerTest < ActionController::TestCase
     end
   end
 
+  def test_index_loads_quick_replies_in_wiki_editor
+    compatible_request :get, :index
+
+    assert_response :success
+
+    assert_select 'script[src*="/plugin_assets/redmine_quick_replies/javascripts/replies.js"]'
+    assert_select 'link[href*="/plugin_assets/redmine_quick_replies/stylesheets/replies.css"]'
+  end
+
   def test_create_reply_with_valid_fields
     reply = new_record(Reply) do
       compatible_request :post, :create, :reply => { :name => 'Quick Reply Name', :body => 'Body' }
