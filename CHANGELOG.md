@@ -2,6 +2,12 @@
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.3.1
+
+### Updated
+
+* Update how the plugin patch wiki_formatting for better compatibility with other plugins
+
 ## v1.3.0
 
 ### Added
