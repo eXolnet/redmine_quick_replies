@@ -1,0 +1,15 @@
+# Russian strings go here for Rails i18n
+ru:
+  activerecord:
+    attributes:
+      reply:
+        body: "Ответ"
+  label_quick_replies: "Быстрые ответы"
+  label_no_quick_reply: "У вас нет сохраненных быстрых ответов."
+  label_new_quick_reply: "Новый быстрый ответ"
+  label_edit_quick_reply: "Редактировать быстрый ответ"
+  label_reply: Ответ
+  notice_reply_successful_create: "Быстрый ответ успешно создан."
+  notice_reply_successful_update: "Быстрый ответ успешно обновлён."
+  notice_reply_successful_delete: "Быстрый ответ успешно удалён."
+  text_reply_destroy_confirmation: "Вы уверены, что хотите удалить этот быстрый ответ?"
