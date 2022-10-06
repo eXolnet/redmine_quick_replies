@@ -16,7 +16,7 @@
             li = $('<li></li>');
 
           li.data('reply', reply);
-          li.text(reply.name);
+          li.html($('<div></div>').text(reply.name));
           li.attr('title', reply.name);
           li.appendTo(dropdown)
 
