@@ -5,15 +5,22 @@ require File.dirname(__FILE__) + '/redmine_quick_replies/patches/wiki_formatting
 
 module RedmineQuickReplies
   class << self
-    #
+    def setup
+      Redmine::WikiFormatting::format_names.each do |format|
+        unless Redmine::WikiFormatting::helper_for(format).included_modules.include? RedmineQuickReplies::Patches::WikiFormattingPatch
+         Redmine::WikiFormatting::helper_for(format).send(:include, RedmineQuickReplies::Patches::WikiFormattingPatch)
+        end
+      end
+    end
   end
 end
 
-Rails.configuration.to_prepare do
-  # send Emoji Patches to all wiki formatters available to be able to switch formatter without app restart
-  Redmine::WikiFormatting::format_names.each do |format|
-    unless Redmine::WikiFormatting::helper_for(format).included_modules.include? RedmineQuickReplies::Patches::WikiFormattingPatch
-     Redmine::WikiFormatting::helper_for(format).send(:include, RedmineQuickReplies::Patches::WikiFormattingPatch)
-    end
+if Rails.version > '6.0' && Rails.autoloaders.zeitwerk_enabled?
+  Rails.application.config.after_initialize do
+    RedmineQuickReplies.setup
+  end
+else
+  Rails.configuration.to_prepare do
+    RedmineQuickReplies.setup
   end
 end
