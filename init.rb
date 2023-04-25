@@ -10,7 +10,7 @@ Redmine::Plugin.register :redmine_quick_replies do
   url 'https://github.com/eXolnet/redmine_quick_replies'
   author_url 'https://www.exolnet.com'
 
-  requires_redmine :version_or_higher => '3.4'
+  requires_redmine :version_or_higher => '4.2'
 
   permission :create_replies, replies: [:index, :create, :edit, :update, :destroy], require: :loggedin
   permission :manage_public_replies, {}
