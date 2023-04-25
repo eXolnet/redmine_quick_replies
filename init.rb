@@ -16,4 +16,4 @@ Redmine::Plugin.register :redmine_quick_replies do
   permission :manage_public_replies, {}
 end
 
-require 'redmine_quick_replies'
+require File.dirname(__FILE__) + '/lib/redmine_quick_replies'

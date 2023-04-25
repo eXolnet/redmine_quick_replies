@@ -1,7 +1,7 @@
-require 'redmine_quick_replies/hooks/add_replies_link'
+require File.dirname(__FILE__) + '/redmine_quick_replies/hooks/add_replies_link'
 
-require 'redmine_quick_replies/patches/user_patch'
-require 'redmine_quick_replies/patches/wiki_formatting_patch'
+require File.dirname(__FILE__) + '/redmine_quick_replies/patches/user_patch'
+require File.dirname(__FILE__) + '/redmine_quick_replies/patches/wiki_formatting_patch'
 
 module RedmineQuickReplies
   class << self
