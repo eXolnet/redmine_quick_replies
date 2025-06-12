@@ -1,6 +1,6 @@
 require 'redmine'
 
-REDMINE_QUICK_REPLIES_VERSION = '1.4.1'
+REDMINE_QUICK_REPLIES_VERSION = '1.5.0'
 
 Redmine::Plugin.register :redmine_quick_replies do
   name 'Quick Replies'
