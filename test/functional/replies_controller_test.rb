@@ -28,8 +28,8 @@ class RepliesControllerTest < ActionController::TestCase
 
     assert_response :success
 
-    assert_select 'script[src*="/plugin_assets/redmine_quick_replies/javascripts/replies.js"]'
-    assert_select 'link[href*="/plugin_assets/redmine_quick_replies/stylesheets/replies.css"]'
+    assert_select 'script[src*="/plugin_assets/redmine_quick_replies"]'
+    assert_select 'link[href*="/plugin_assets/redmine_quick_replies"]'
   end
 
   def test_create_reply_with_valid_fields
