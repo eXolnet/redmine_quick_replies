@@ -34,7 +34,7 @@ class Reply < ActiveRecord::Base
   scope :editable, lambda {|*args|
     user = args.first || User.current
 
-    return visible if user.allowed_to_manage_public_replies?
+    return visible(user) if user.allowed_to_manage_public_replies?
 
     author(user)
   }
