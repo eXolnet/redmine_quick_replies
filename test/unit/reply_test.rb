@@ -109,6 +109,12 @@ class ReplyTest < ActiveSupport::TestCase
     assert_equal [2], Reply.editable(User.find(2)).pluck(:id)
   end
 
+  def test_editable_scope_with_manage_public_permission
+    Role.find(1).add_permission! :manage_public_replies
+
+    assert_equal [2, 3], Reply.editable(User.find(2)).order(:id).pluck(:id)
+  end
+
   def test_editable_scope_should_default_to_current_user
     User.current = User.find(2)
 
